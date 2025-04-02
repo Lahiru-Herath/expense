@@ -2,15 +2,15 @@ provider "aws" {
   region = "eu-north-1" # Change to your preferred region
 }
 
-resource "aws_instance" "expense-Server" {
+resource "aws_instance" "mern_app_server" {
   ami           = "ami-0323c940050bcdb62" # Amazon Linux 2 AMI (update as needed)
   instance_type = "t3.micro"             # Adjust based on your needs
-  key_name      = "expense-key"    # Replace with your EC2 key pair name
+  key_name      = "elevateDaily-key"    # Replace with your EC2 key pair name
 
   vpc_security_group_ids = [aws_security_group.mern_sg.id]
 
   tags = {
-    Name = "expense-Server"
+    Name = "ElevateDaily-Server"
   }
 
   user_data = <<-EOF
@@ -24,7 +24,7 @@ resource "aws_instance" "expense-Server" {
 }
 
 resource "aws_security_group" "mern_sg" {
-  name        = "expense-group"
+  name        = "elevateDaily-security-group"
   description = "Allow SSH, HTTP, HTTPS, and custom ports for MERN app"
 
   ingress {
@@ -72,5 +72,5 @@ resource "aws_security_group" "mern_sg" {
 }
 
 output "instance_public_ip" {
-  value = aws_instance.expense-Server.public_ip
+  value = aws_instance.mern_app_server.public_ip
 }
