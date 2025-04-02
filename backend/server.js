@@ -5,9 +5,13 @@ require('dotenv').config(); // dotenv is a package that loads environment variab
 
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
-const {notFound, errorHandler} = require('./middleware/errorMiddleware');
+const { notFound, errorHandler } = require('./middleware/errorMiddleware');
+const expenseRoutes = require('./routes/expenseRoutes');
+
 
 const app = express();
+
+
 
 app.use(express.json({extended: true})); // express.json() is a middleware that parses incoming requests with JSON payloads
 app.use(express.urlencoded({extended: true})); // express.urlencoded() is a middleware that parses incoming requests with urlencoded payloads
@@ -15,6 +19,7 @@ app.use(cors({credentials: true, origin: 'http://13.60.43.234:3000'})); // cors(
 
 app.use('/api/users', userRoutes); 
 app.use('/api/posts', postRoutes);
+app.use('/api/expenses', expenseRoutes);
 
 app.use(notFound)
 app.use(errorHandler)
