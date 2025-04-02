@@ -72,5 +72,5 @@ resource "aws_security_group" "mern_sg" {
 }
 
 output "instance_public_ip" {
-  value = aws_instance.mern_app_server.public_ip
+  value = aws_instance.expense-Server.public_ip
 }
