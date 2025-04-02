@@ -2,7 +2,7 @@ provider "aws" {
   region = "eu-north-1" # Change to your preferred region
 }
 
-resource "aws_instance" "mern_app_server" {
+resource "aws_instance" "expense-Server" {
   ami           = "ami-0323c940050bcdb62" # Amazon Linux 2 AMI (update as needed)
   instance_type = "t3.micro"             # Adjust based on your needs
   key_name      = "expense-key"    # Replace with your EC2 key pair name
