@@ -10,7 +10,7 @@ resource "aws_instance" "mern_app_server" {
   vpc_security_group_ids = [aws_security_group.mern_sg.id]
 
   tags = {
-    Name = "ElevateDaily-Server"
+    Name = "expense-Server"
   }
 
   user_data = <<-EOF
@@ -24,7 +24,7 @@ resource "aws_instance" "mern_app_server" {
 }
 
 resource "aws_security_group" "mern_sg" {
-  name        = "elevateDaily-security-group"
+  name        = "expense-group"
   description = "Allow SSH, HTTP, HTTPS, and custom ports for MERN app"
 
   ingress {
