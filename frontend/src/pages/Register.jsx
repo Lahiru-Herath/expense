@@ -31,7 +31,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post('http://13.60.43.234:5000/api/users/register', userData);
+      const response = await axios.post('http://51.21.192.14:5000/api/users/register', userData);
       console.log(response.data);
       navigate('/');
       
